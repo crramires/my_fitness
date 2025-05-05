@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: 123
+  host: localhost
+
+development:
+  <<: *default
+  database: my_fitness_development
+
+test:
+  <<: *default
+  database: my_fitness_test
+
+production:
+  <<: *default
+  database: my_fitness_production
+  username: my_fitness
+  password: <%= ENV["MY_FITNESS_DATABASE_PASSWORD"] %>
